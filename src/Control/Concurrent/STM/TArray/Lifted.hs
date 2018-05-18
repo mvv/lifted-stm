@@ -1,8 +1,11 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE UnicodeSyntax #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+#if __GLASGOW_HASKELL__ >= 800
 {-# OPTIONS_GHC -Wno-orphans #-}
+#endif
 
 -- | Lifted 'TArray' operations.
 module Control.Concurrent.STM.TArray.Lifted
