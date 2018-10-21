@@ -17,18 +17,19 @@ module Control.Concurrent.STM.TBQueue.Lifted
   , isFullTBQueue
   ) where
 
+import Numeric.Natural (Natural)
 import Control.Monad.Base (MonadBase(..))
 import Control.Monad.STM (STM)
 import Control.Concurrent.STM.TBQueue (TBQueue)
 import qualified Control.Concurrent.STM.TBQueue as STM
 
 -- | A lifted version of 'STM.newTBQueue'.
-newTBQueue ∷ MonadBase STM μ ⇒ Int → μ (TBQueue α)
+newTBQueue ∷ MonadBase STM μ ⇒ Natural → μ (TBQueue α)
 newTBQueue = liftBase . STM.newTBQueue
 {-# INLINE newTBQueue #-}
 
 -- | A lifted version of 'STM.newTBQueueIO'.
-newTBQueueIO ∷ MonadBase IO μ ⇒ Int → μ (TBQueue α)
+newTBQueueIO ∷ MonadBase IO μ ⇒ Natural → μ (TBQueue α)
 newTBQueueIO = liftBase . STM.newTBQueueIO
 {-# INLINE newTBQueueIO #-}
 

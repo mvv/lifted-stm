@@ -10,13 +10,14 @@ module Control.Concurrent.STM.TSem.Lifted
   , signalTSemN
   ) where
 
+import Numeric.Natural (Natural)
 import Control.Monad.Base (MonadBase(..))
 import Control.Monad.STM (STM)
 import Control.Concurrent.STM.TSem (TSem)
 import qualified Control.Concurrent.STM.TSem as STM
 
 -- | A lifted version of 'STM.newTSem'.
-newTSem ∷ MonadBase STM μ ⇒ Int → μ TSem
+newTSem ∷ MonadBase STM μ ⇒ Integer → μ TSem
 newTSem = liftBase . STM.newTSem
 {-# INLINE newTSem #-}
 
@@ -31,6 +32,6 @@ signalTSem = liftBase . STM.signalTSem
 {-# INLINE signalTSem #-}
 
 -- | A lifted version of 'STM.signalTSemN'.
-signalTSemN ∷ MonadBase STM μ ⇒ Word → TSem → μ ()
+signalTSemN ∷ MonadBase STM μ ⇒ Natural → TSem → μ ()
 signalTSemN = (liftBase .) . STM.signalTSemN
 {-# INLINE signalTSemN #-}

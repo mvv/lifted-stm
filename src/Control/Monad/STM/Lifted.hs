@@ -7,8 +7,6 @@ module Control.Monad.STM.Lifted
   , MonadSTM(..)
   , atomically
   , retry
-  , alwaysSucceeds
-  , always
   , check
   , throwSTM
   , catchSTM
@@ -95,16 +93,6 @@ atomically = liftBase . STM.atomically
 retry ∷ MonadBase STM μ ⇒ μ α
 retry = liftBase STM.retry
 {-# INLINE retry #-}
-
--- | A lifted version of 'STM.alwaysSucceeds'.
-alwaysSucceeds ∷ MonadBase STM μ ⇒ STM α → μ ()
-alwaysSucceeds = liftBase . STM.alwaysSucceeds
-{-# INLINE alwaysSucceeds #-}
-
--- | A lifted version of 'STM.always'.
-always ∷ MonadBase STM μ ⇒ STM Bool → μ ()
-always = liftBase . STM.always
-{-# INLINE always #-}
 
 -- | A lifted version of 'STM.check'.
 check ∷ MonadBase STM μ ⇒ Bool → μ ()
