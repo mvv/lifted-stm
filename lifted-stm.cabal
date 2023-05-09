@@ -1,5 +1,5 @@
 Name: lifted-stm
-Version: 0.2
+Version: 0.2.0.1
 Category: Concurrency
 Stability: experimental
 Synopsis: STM operations lifted through monad transformer stacks
@@ -39,7 +39,7 @@ Library
                , transformers-compat >= 0.6.1
                , transformers-base >= 0.4.5.2
                , transformers-abort >= 0.6
-               , monad-finally >= 0.1.2
+               , monad-finally >= 0.1.2.1
   Hs-Source-Dirs: src
   GHC-Options: -Wall
   Exposed-Modules:
